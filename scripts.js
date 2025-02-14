@@ -208,7 +208,10 @@ function load(){
             }
         }
         hamster_segments = Number(substring);
+        hamster_length = 10.56 + 8 * hamster_segments;
         make_hamster(window);
+        update_hamster_state();
+        hamster_length_indicator.innerHTML = "Hamster Length: " + String(hamster_length.toFixed(2)) + "cm";
     }
     else{
     }
