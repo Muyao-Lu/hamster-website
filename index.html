@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Imma hamster!</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body bgcolor="#c8c2a2" id="body">
+        <div id="header">
+            <div id="header-text-container">
+                <h1 id="header-text">This website is a hamster</h1>
+            </div>
+            <a href="what.html" target="_blank"><button class="header-button">What???</button></a>
+            <button class="header-button" onclick="alert('Here is a gold star:  &#9733;');">Cool</button>
+            <button class="header-button" onclick="print_hamster()">Print your hamster</button>
+        </div>
+        <div id="instructions">
+            <ul>
+                <li>Feed the hamster for it to get longer!</li>
+                <li>Be careful - Don't let the hamster starve, or the website might just explode.</li>
+                <li>If you overfeed the hamster, the website will most definitely explode.</li>
+            </ul>
+        </div>
+        <div id="hamster">
+            <div id="hamster-stats">
+                <h2 class="hamster-stats-text" id="length">Hamster Length: 10.56cm</h2>
+                <h2 class="hamster-stats-text" id="state">Hamster Condition: Feelin' Good</h2>
+                <label for="hamster-hunger">Hunger</label>
+                <progress id="hunger" min="0" max="13" value="5"></progress>
+                <label for="food-reserves">Food Reserves</label>
+                <progress id="food-reserves" min="0" max="6" value="0"></progress>
+            </div>
+            <div id="hamster-container">
+                <h2 class="hamster-stats-text">The Magical Carrot which you shall feed your hamster:</h2>
+                <img id="magical-carrot" src="carrot.png" draggable="true">
+                <h2 class="hamster-stats-text">Your Hamster:</h2>
+                <div id="growing-hamster">
+                    <img id="hamster-head" src="hamster_head.png" draggable="false">
+                    <img id="hamster-bottom" src="hamster_foot.png" draggable="false">
+                </div>
+            </div>
+            </div>
+        </div>
+        <script src="scripts.js"></script>
+    </body>
+</html>

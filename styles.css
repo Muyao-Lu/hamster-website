@@ -1,0 +1,166 @@
+body{
+    margin: 0px;
+    width: 100vw;
+    overflow-x: hidden;
+    padding: 0px;
+    margin: 0px;
+}
+#header-text{
+    font-size: 5vmin;
+    font-family: monospace;
+    color: #f4f3fc;
+}
+
+#header{
+    width: 100vw;
+    background-color: #5e5443;
+    /* position: absolute; */
+    left: 0vw;
+    top: 0vh;
+    padding: 3vmin;
+    margin: 0px;
+}
+
+.header-button{
+    display: inline;
+    position: relative;
+    color: #f4f3fc;
+    background-color: #83745c;
+    font-family: monospace;
+    height: 5vh;
+    width: 15vw;
+    font-size: 3vmin;
+    margin-right: 3vw;
+    font-size: 2vmin;
+    text-align: center;
+    border: none;
+    transition: transform 0.5s;
+    border-radius: 25px;
+    animation: pop 2s 1;
+}
+
+.header-button:hover{
+    transform: scale(1.1);
+    background-color: #a79477;
+}
+
+@keyframes type{
+    from{width: 0%;}
+    to{width: 100%;}
+}
+
+@keyframes pop{
+    0%{transform: scale(0);}
+    50%{transform: scale(0);}
+    100%{transform: scale(1);}
+}
+
+@keyframes slide-in-right{
+    from{
+        transform: translateX(-100vw);
+    }
+    to{
+        transform: translateX(0vw);
+    }
+}
+
+@keyframes slide-in-left{
+    from{
+        transform: translateX(100vw);
+    }
+    to{
+        transform: translateX(0vw);
+    }
+}
+
+#header-text-container{
+    height: 10vh;
+    animation: type 5s 1 linear;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+#instructions, #hamster{
+    width: 80vw;
+    padding: 3vmin;
+    position: relative;
+    left: calc(10vw - 3vmin);
+    margin-top: 3vh;
+    border-radius: 25px;
+    background-color: #5e5443;
+    color: #f4f3fc;
+    font-family: monospace;
+
+}
+#instructions{
+    height: 10vh;
+    font-size: 2vmin;
+    transition: transform 0.5s;
+    animation: slide-in-right 0.5s 1 linear;
+}
+
+#instructions:hover{
+    transform: scale(1.1)
+}
+
+#hamster{
+    animation: slide-in-left 0.5s 1 linear;
+}
+
+#hamster-stats, #hamster-container{
+    background-color: #83745c;
+    font-family: monospace;
+    width: 60vw;
+    margin: 5vh 10vw;
+    padding: 3vmin;
+    text-align: center;
+    border-radius: 25px;
+    
+}
+
+.hamster-stats-text{
+    font-family: monospace;
+    font-size: 4vmin;
+}
+
+#magical-carrot{
+    height: 30vh;
+    cursor: move;
+}
+
+#magical-carrot:hover{
+    transform: scale(1.1);
+}
+
+#growing-hamster{
+    width: 8cm;
+    position: relative;
+    left: calc(30vw - 4cm);
+
+}
+
+#hamster-head{
+    width: 8cm;
+    height: 8cm;
+}
+
+#hamster-bottom{
+    height: 2.56cm;
+    width: 8cm;
+}
+
+#hamster-body{
+    width: 8cm;
+    height: 8cm;
+}
+
+#hamster-head, #hamster-bottom, #hamster-body{
+    display: block;
+}
+
+#death{
+    font-family: monospace;
+    color: darkred;
+    font-size: 5vmin;
+    text-align: center;
+}
