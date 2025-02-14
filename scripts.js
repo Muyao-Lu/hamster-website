@@ -189,28 +189,45 @@ function save_progress() {
     const d = new Date();
     d.setTime(d.getTime() + (3*24*60*60*1000));
     let expires = "expires=" + d.toUTCString();
-    document.cookie = "length" + "=" + String(hamster_segments) + ";" + expires + ";path=/";
+    document.cookie = "length" + "=" + String(hamster_segments) + ";" +\
+                      "hunger" + "=" + String(hamster_fullness)  + ";" +\
+                      "reserves" + "=" + String(hamster_food_reserves) + ";" +\
+                        expires + ";path=/";
     console.log(decodeURIComponent(document.cookie));
   }
-  
+
+function decompile_substring(to_process){
+    let mode = "waiting";
+    let substring = "";
+    for (let i=0; i<cookie_processed.length; i++){
+        if (mode == "active"){
+                substring += to_process[i];
+        }
+        if (to_process[i] == "="){
+            mode = "active";
+        }
+    }
+    return substring;
+    
+}
 
 function load(){
     let cookie_processed = decodeURIComponent(document.cookie);
-    if (cookie_processed != ""){    
-        let mode = "waiting";
-        let substring = "";
-        for (let i=0; i<cookie_processed.length; i++){
-            if (mode == "active"){
-                substring += cookie_processed[i];
-            }
-            if (cookie_processed[i] == "="){
-                mode = "active";
-            }
+    let cookie_split = cookies_processed.split(";");
+    if (cookie_processed != ""){  
+        for (let i=0; i<cookie_split.length; i++){
+            if (cookie_split[i].includes("length") != -1){
+                hamster_segments = Number(decompile_substring(cookie_split[i]));
+                hamster_length = 10.56 + 8 * hamster_segments;}
+            else if (cookie_split[i].includes("hunger") != -1){
+                hamster_fullness = Number(decompile_substring(cookie_split[i]));}
+            else if (cookie_split[i].includes("reserves") != -1){
+                hamster_food_reserves = Number(decompile_substring(cookie_split[i]));}
         }
-        hamster_segments = Number(substring);
-        hamster_length = 10.56 + 8 * hamster_segments;
+        
         make_hamster(window);
         update_hamster_state();
+        update_progress_bar();
         hamster_length_indicator.innerHTML = "Hamster Length: " + String(hamster_length.toFixed(2)) + "cm";
     }
     else{
@@ -220,5 +237,5 @@ function load(){
 hamster.addEventListener("drop", drop);
 hamster.addEventListener("dragover", dragover);
 setInterval(digest_food, 10000);
-setInterval(save_progress, 1000)
+setInterval(save_progress, 5000)
 load()
