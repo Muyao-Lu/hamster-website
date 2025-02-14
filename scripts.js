@@ -198,12 +198,15 @@ function save_progress() {
 function decompile_substring(to_process){
     let mode = "waiting";
     let substring = "";
-    for (let i=0; i<cookie_processed.length; i++){
+    for (let i=0; i<to_process.length; i++){
         if (mode == "active"){
                 substring += to_process[i];
         }
         if (to_process[i] == "="){
             mode = "active";
+        }
+        else if (to_process[i] == ";"){
+            mode = "waiting"
         }
     }
     return substring;
