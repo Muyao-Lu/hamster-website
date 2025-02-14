@@ -174,7 +174,7 @@ function make_hamster(window_to_modify){
     new_window_growing_hamster.innerHTML = '<img id="hamster-head" src="hamster_head.png" draggable="false">\
                                             <img id="hamster-bottom" src="hamster_foot.png" draggable="false">';
     
-    for (let i=0; i<=hamster_segments; i++){
+    for (let i=0; i<hamster_segments; i++){
         let body_segment = window_to_modify.document.createElement("div");
     let hamster_bottom_new = window_to_modify.document.getElementById("hamster-bottom");
     body_segment.setAttribute("id", "hamster-body-container");
