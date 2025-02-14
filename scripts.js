@@ -189,10 +189,7 @@ function save_progress() {
     const d = new Date();
     d.setTime(d.getTime() + (3*24*60*60*1000));
     let expires = "expires=" + d.toUTCString();
-    document.cookie = "length" + "=" + String(hamster_segments) + ";" +\
-                      "hunger" + "=" + String(hamster_fullness)  + ";" +\
-                      "reserves" + "=" + String(hamster_food_reserves) + ";" +\
-                        expires + ";path=/";
+    document.cookie = "length" + "=" + String(hamster_segments) + ";" + "hunger" + "=" + String(hamster_fullness)  + ";" +"reserves" + "=" + String(hamster_food_reserves) + ";" + expires + ";path=/";
     console.log(decodeURIComponent(document.cookie));
   }
 
