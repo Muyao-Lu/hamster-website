@@ -212,7 +212,7 @@ function decompile_substring(to_process){
 
 function load(){
     let cookie_processed = decodeURIComponent(document.cookie);
-    let cookie_split = cookies_processed.split(";");
+    let cookie_split = cookie_processed.split(";");
     if (cookie_processed != ""){  
         for (let i=0; i<cookie_split.length; i++){
             if (cookie_split[i].includes("length") != -1){
