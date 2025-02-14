@@ -14,6 +14,8 @@ function delete_webpage(reason){
     const body = document.getElementById("body");
     if (reason == "starved"){body.innerHTML = "<h1 id='death'>Your hamster starved. Webpage Deleted.</h1>"}
     else if (reason == "full"){body.innerHTML = "<h1 id='death'>Your hamster exploded. Webpage Deleted.</h1>"}
+    hamster_segments = 0;
+    save_progress();
     
 }
 
@@ -193,17 +195,22 @@ function save_progress() {
 
 function load(){
     let cookie_processed = decodeURIComponent(document.cookie);
-    let mode = "waiting";
-    let substring = "";
-    for (let i=0; i<cookie_processed.length; i++){
-        if (mode == "active"){
-            substring += cookie_processed[i];
+    if (cookie_processed != ""){    
+        let mode = "waiting";
+        let substring = "";
+        for (let i=0; i<cookie_processed.length; i++){
+            if (mode == "active"){
+                substring += cookie_processed[i];
+            }
+            if (cookie_processed[i] == "="){
+                mode = "active";
+            }
         }
-        if (cookie_processed[i] == "="){
-            mode = "active";
-        }
+        hamster_segments = Number(substring);
+        make_hamster(window);
     }
-    console.log(substring);
+    else{
+    }
 }
 
 hamster.addEventListener("drop", drop);
