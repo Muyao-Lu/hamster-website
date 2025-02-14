@@ -187,13 +187,23 @@ function save_progress() {
     const d = new Date();
     d.setTime(d.getTime() + (3*24*60*60*1000));
     let expires = "expires=" + d.toUTCString();
-    document.cookie = "length" + "=" + "10" + ";" + expires + ";path=/";
-    console.log(document.cookie)
+    document.cookie = "length" + "=" + String(hamster_segments) + ";" + expires + ";path=/";
   }
   
 
 function load(){
-    console.log(decodeURIComponent(document.cookie));
+    let cookie_processed = decodeURIComponent(document.cookie);
+    let mode = "waiting";
+    let substring = "";
+    for (let i=0; i<cookie_processed.length; i++){
+        if (mode == "active"){
+            substring += cookie_processed[i];
+        }
+        if (cookie_processed[i] == "="){
+            mode = "active";
+        }
+    }
+    console.log(substring);
 }
 
 hamster.addEventListener("drop", drop);
