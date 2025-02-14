@@ -190,6 +190,7 @@ function save_progress() {
     d.setTime(d.getTime() + (3*24*60*60*1000));
     let expires = "expires=" + d.toUTCString();
     document.cookie = "length" + "=" + String(hamster_segments) + ";" + expires + ";path=/";
+    console.log(decodeURIComponent(document.cookie));
   }
   
 
