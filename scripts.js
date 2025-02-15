@@ -218,13 +218,20 @@ function load(){
     let cookie_split = cookie_processed.split(";");
     if (cookie_processed != ""){  
         for (let i=0; i<cookie_split.length; i++){
+            console.log(cookie_split);
             if (cookie_split[i].includes("length") != -1){
                 hamster_segments = Number(decompile_substring(cookie_split[i]));
-                hamster_length = 10.56 + 8 * hamster_segments;}
+                hamster_length = 10.56 + 8 * hamster_segments;
+                console.log(hamster_length);
+            }
             else if (cookie_split[i].includes("hunger") != -1){
-                hamster_fullness = Number(decompile_substring(cookie_split[i]));}
+                hamster_fullness = Number(decompile_substring(cookie_split[i]));
+                console.log(hamster_fullness);
+            }
             else if (cookie_split[i].includes("reserves") != -1){
-                hamster_food_reserves = Number(decompile_substring(cookie_split[i]));}
+                hamster_food_reserves = Number(decompile_substring(cookie_split[i]));
+                console.log(hamster_food_reserves);
+            }
         }
         
         make_hamster(window);
