@@ -220,9 +220,9 @@ function load(){
         for (let i=0; i<cookie_split.length; i++){
             console.log(cookie_split);
             console.log(cookie_split[i]);
-            console.log(cookie_split[i].includes("length");
-            console.log(cookie_split[i].includes("hunger");
-            console.log(cookie_split[i].includes("reserves");
+            console.log(cookie_split[i].includes("length"));
+            console.log(cookie_split[i].includes("hunger"));
+            console.log(cookie_split[i].includes("reserves"));
             if (cookie_split[i].includes("length") != -1){
                 hamster_segments = Number(decompile_substring(cookie_split[i]));
                 hamster_length = 10.56 + 8 * hamster_segments;
