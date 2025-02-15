@@ -223,16 +223,16 @@ function load(){
             console.log(cookie_split[i].includes("length"));
             console.log(cookie_split[i].includes("hunger"));
             console.log(cookie_split[i].includes("reserves"));
-            if (cookie_split[i].includes("length") != -1){
+            if (cookie_split[i].includes("length")){
                 hamster_segments = Number(decompile_substring(cookie_split[i]));
                 hamster_length = 10.56 + 8 * hamster_segments;
                 console.log(hamster_length);
             }
-            else if (cookie_split[i].includes("hunger") != -1){
+            else if (cookie_split[i].includes("hunger")){
                 hamster_fullness = Number(decompile_substring(cookie_split[i]));
                 console.log(hamster_fullness);
             }
-            else if (cookie_split[i].includes("reserves") != -1){
+            else if (cookie_split[i].includes("reserves")){
                 hamster_food_reserves = Number(decompile_substring(cookie_split[i]));
                 console.log(hamster_food_reserves);
             }
