@@ -15,6 +15,8 @@ function delete_webpage(reason){
     if (reason == "starved"){body.innerHTML = "<h1 id='death'>Your hamster starved. Webpage Deleted.</h1>"}
     else if (reason == "full"){body.innerHTML = "<h1 id='death'>Your hamster exploded. Webpage Deleted.</h1>"}
     hamster_segments = 0;
+    hamster_fullness = 5;
+    hamster_food_reserves = 0;
     save_progress();
     
 }
