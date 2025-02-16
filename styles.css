@@ -1,3 +1,6 @@
+* {
+    font-family: monospace;
+}
 body{
     margin: 0px;
     width: 100vw;
@@ -7,31 +10,38 @@ body{
 }
 #header-text{
     font-size: 5vmin;
-    font-family: monospace;
     color: #f4f3fc;
+}
+
+#progress-bar-label{
+    font-size: 3vmin;
 }
 
 #header{
     width: 100vw;
     background-color: #5e5443;
-    /* position: absolute; */
     left: 0vw;
     top: 0vh;
     padding: 3vmin;
     margin: 0px;
 }
 
+.instructions-subsection{
+    width: 60vw;
+    padding: 3vmin;
+    margin: 3vmin calc(10vw - 3vmin);
+    background-color: #83745c;
+    border-radius: 25px;
+}
 .header-button{
     display: inline;
     position: relative;
     color: #f4f3fc;
     background-color: #83745c;
-    font-family: monospace;
+    font-size: 0.8vw;
     height: 5vh;
     width: 15vw;
-    font-size: 3vmin;
     margin-right: 3vw;
-    font-size: 2vmin;
     text-align: center;
     border: none;
     transition: transform 0.5s;
@@ -89,11 +99,9 @@ body{
     border-radius: 25px;
     background-color: #5e5443;
     color: #f4f3fc;
-    font-family: monospace;
 
 }
 #instructions{
-    height: 10vh;
     font-size: 2vmin;
     transition: transform 0.5s;
     animation: slide-in-right 0.5s 1 linear;
@@ -109,7 +117,6 @@ body{
 
 #hamster-stats, #hamster-container{
     background-color: #83745c;
-    font-family: monospace;
     width: 60vw;
     margin: 5vh 10vw;
     padding: 3vmin;
@@ -119,7 +126,6 @@ body{
 }
 
 .hamster-stats-text{
-    font-family: monospace;
     font-size: 4vmin;
 }
 
@@ -159,7 +165,6 @@ body{
 }
 
 #death{
-    font-family: monospace;
     color: darkred;
     font-size: 5vmin;
     text-align: center;
