@@ -9,11 +9,17 @@ let hamster_food_reserves = 0;
 let hamster_segments = 0;
 const hamster_fullness_bar = document.getElementById("hunger");
 const hamster_reserves_bar = document.getElementById("food-reserves");
+const title = document.getElementById("title");
+const music_player = document.getElementById("music");
 
 function delete_webpage(reason){
     const body = document.getElementById("body");
-    if (reason == "starved"){body.innerHTML = "<h1 id='death'>Your hamster starved. Webpage Deleted.</h1>"}
-    else if (reason == "full"){body.innerHTML = "<h1 id='death'>Your hamster exploded. Webpage Deleted.</h1>"}
+    if (reason == "starved"){
+        window.location.replace("starved.html");
+    }
+    else if (reason == "full"){
+        window.location.replace("exploded.html");
+    }
     hamster_segments = 0;
     hamster_fullness = 5;
     hamster_food_reserves = 0;
@@ -22,6 +28,8 @@ function delete_webpage(reason){
 }
 
 function update_hamster_state(){
+    hamster_length_indicator.innerHTML = "Hamster Length: " + String(hamster_length.toFixed(2)) + "cm";
+    title.innerHTML = "Hamster - " + String(hamster_length.toFixed(2)) + "cm"
     if (hamster_fullness <= 1){
         hamster_state_indicator.innerHTML = "Hamster Condition: FEED ME, I'M NOT JOKING HUMAN";
     }
@@ -52,20 +60,31 @@ function update_progress_bar(){
 
 function increase_hamster_length(){
     if (hamster_fullness <= 13){
-        let body_segment = document.createElement("div")
-        body_segment.setAttribute("id", "hamster-body-container")
-        body_segment.innerHTML = "<img src='hamster_body.png' id='hamster-body' draggable='false'>"
-        hamster.insertBefore(body_segment, hamster_bottom)
+        let body_segment = document.createElement("div");
+        body_segment.setAttribute("id", "hamster-body-container");
+        body_segment.innerHTML = "<img src='hamster_body.png' id='hamster-body' draggable='false'>";
+        hamster.insertBefore(body_segment, hamster_bottom);
         
-        hamster_segments += 1
+        hamster_segments += 1;
 
         hamster_fullness += 1;
         hamster_length += 8;
-        hamster_length_indicator.innerHTML = "Hamster Length: " + String(hamster_length.toFixed(2)) + "cm"
+        
 
         if (hamster_food_reserves <= 5){
-            hamster_food_reserves += 1
+            hamster_food_reserves += 1;
         }
+        else{
+            if (Math.round(Math.random(0, 3)) == 0){
+                hamster_length += 8;
+                hamster_segments += 1;
+                let body_segment = document.createElement("div");
+                body_segment.setAttribute("id", "hamster-body-container");
+                body_segment.innerHTML = "<img src='hamster_body.png' id='hamster-body' draggable='false'>";
+                hamster.insertBefore(body_segment, hamster_bottom);
+            }
+        }
+
         
         
         update_hamster_state();
@@ -78,10 +97,10 @@ function increase_hamster_length(){
 
 function remove_body_segment(){
     let hamster_body = document.getElementById("hamster-body-container");
-                    hamster_body.remove();
-                    hamster_length -= 8;
-                    hamster_length_indicator.innerHTML = "Hamster Length: " + String(hamster_length.toFixed(2)) + "cm"
-                    hamster_segments -= 1;
+    hamster_body.remove();
+    hamster_length -= 8;
+    hamster_length_indicator.innerHTML = "Hamster Length: " + String(hamster_length.toFixed(2)) + "cm";
+    hamster_segments -= 1;
 }
 
 function digest_food(){
@@ -94,7 +113,7 @@ function digest_food(){
         let n = Math.round(Math.random(0, 2));
         if (Math.round(Math.random(0, 2)) == 0){
             if (hamster_food_reserves > 0){
-                hamster_food_reserves -= 1
+                hamster_food_reserves -= 1;
             }
             
             else{
@@ -103,16 +122,17 @@ function digest_food(){
                     remove_body_segment(); 
                     }  
                     catch{
-                        hamster_fullness -= 1}
+                        hamster_fullness -= 1;
+                    }
                     }
                 else{
-                    hamster_fullness -= 1
+                    hamster_fullness -= 1;
                 }
             }
             
         }
         else{
-            hamster_fullness -= 1
+            hamster_fullness -= 1;
         }
         update_hamster_state();
         update_progress_bar();
@@ -121,7 +141,7 @@ function digest_food(){
     else{
         
         if (hamster_food_reserves >= 1){
-            hamster_food_reserves -= 1
+            hamster_food_reserves -= 1;
         }
         else{
             try{
@@ -149,7 +169,7 @@ function dragover(initiator){
 
 function print_hamster(){
     let new_window = window.open("download.html");
-    new_window.addEventListener("load", configure_new_window(new_window))
+    new_window.addEventListener("load", configure_new_window(new_window));
     
 }
 
@@ -180,7 +200,7 @@ function make_hamster(window_to_modify){
         let body_segment = window_to_modify.document.createElement("div");
     let hamster_bottom_new = window_to_modify.document.getElementById("hamster-bottom");
     body_segment.setAttribute("id", "hamster-body-container");
-    body_segment.innerHTML = "<img src='hamster_body.png' id='hamster-body'  draggable='false'>"
+    body_segment.innerHTML = "<img src='hamster_body.png' id='hamster-body'  draggable='false'>";
         new_window_growing_hamster.insertBefore(body_segment, hamster_bottom_new);
     }
     hamster = window_to_modify.document.getElementById("growing-hamster");
@@ -188,13 +208,13 @@ function make_hamster(window_to_modify){
 }
 
 function save_progress() {
+    console.log("progress saved!");
     const d = new Date();
     d.setTime(d.getTime() + (3*24*60*60*1000));
     let expires = "expires=" + d.toUTCString();
     document.cookie = "length" + "=" + String(hamster_segments) + ";" + expires + ";path=/";
     document.cookie = "hunger" + "=" + String(hamster_fullness) + ";" + expires + ";path=/";
     document.cookie = "reserves" + "=" + String(hamster_food_reserves) + ";" + expires + ";path=/";
-    console.log(decodeURIComponent(document.cookie));
   }
 
 function decompile_substring(to_process){
@@ -208,7 +228,7 @@ function decompile_substring(to_process){
             mode = "active";
         }
         else if (to_process[i] == ";"){
-            mode = "waiting"
+            mode = "waiting";
         }
     }
     return substring;
@@ -220,37 +240,37 @@ function load(){
     let cookie_split = cookie_processed.split(";");
     if (cookie_processed != ""){  
         for (let i=0; i<cookie_split.length; i++){
-            console.log(cookie_split);
-            console.log(cookie_split[i]);
-            console.log(cookie_split[i].includes("length"));
-            console.log(cookie_split[i].includes("hunger"));
-            console.log(cookie_split[i].includes("reserves"));
             if (cookie_split[i].includes("length")){
                 hamster_segments = Number(decompile_substring(cookie_split[i]));
                 hamster_length = 10.56 + 8 * hamster_segments;
-                console.log(hamster_length);
             }
             else if (cookie_split[i].includes("hunger")){
                 hamster_fullness = Number(decompile_substring(cookie_split[i]));
-                console.log(hamster_fullness);
             }
             else if (cookie_split[i].includes("reserves")){
                 hamster_food_reserves = Number(decompile_substring(cookie_split[i]));
-                console.log(hamster_food_reserves);
             }
         }
         
         make_hamster(window);
         update_hamster_state();
         update_progress_bar();
-        hamster_length_indicator.innerHTML = "Hamster Length: " + String(hamster_length.toFixed(2)) + "cm";
     }
     else{
+    }
+}
+
+function play_music(){
+    if (music_player.paused){
+        music_player.play()
+    }
+    else{
+        music_player.pause()
     }
 }
 
 hamster.addEventListener("drop", drop);
 hamster.addEventListener("dragover", dragover);
 setInterval(digest_food, 10000);
-setInterval(save_progress, 5000)
-load()
+setInterval(save_progress, 5000);
+load();

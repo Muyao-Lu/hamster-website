@@ -32,6 +32,7 @@ body{
     margin: 3vmin calc(10vw - 3vmin);
     background-color: #83745c;
     border-radius: 25px;
+    transition: transform 0.2s ease-out;
 }
 .header-button{
     display: inline;
@@ -99,16 +100,17 @@ body{
     border-radius: 25px;
     background-color: #5e5443;
     color: #f4f3fc;
+    will-change: filter;
+    transition: filter 0.2s ease-out;
 
 }
 #instructions{
     font-size: 2vmin;
-    transition: transform 0.5s;
-    animation: slide-in-right 0.5s 1 linear;
+    animation: slide-in-right 0.5s 1 linear;  
 }
 
-#instructions:hover{
-    transform: scale(1.1)
+#instructions:hover, #hamster:hover{
+    filter: drop-shadow(10px 10px rgba(0, 0, 0, 0.75));
 }
 
 #hamster{
@@ -122,9 +124,13 @@ body{
     padding: 3vmin;
     text-align: center;
     border-radius: 25px;
+    transition: transform 0.2s ease-out;
     
 }
 
+#hamster-stats:hover, #hamster-container:hover, .instructions-subsection:hover{
+    transform: translateY(-1vh);
+}
 .hamster-stats-text{
     font-size: 4vmin;
 }
@@ -169,3 +175,21 @@ body{
     font-size: 5vmin;
     text-align: center;
 }
+
+a{
+    text-decoration: none;
+}
+
+#popcorn-button{
+    width: 5vw;
+    display: inline;
+    position: sticky;
+    bottom: 0;
+    left: 0;
+    transition: transform 0.1s ease-out,
+}
+
+#popcorn-button:hover{
+    transform: scale(1.1) rotate(10deg);
+}
+
