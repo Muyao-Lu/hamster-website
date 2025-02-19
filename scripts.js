@@ -10,7 +10,6 @@ let hamster_segments = 0;
 const hamster_fullness_bar = document.getElementById("hunger");
 const hamster_reserves_bar = document.getElementById("food-reserves");
 const title = document.getElementById("title");
-const music_player = document.getElementById("music");
 
 function delete_webpage(reason){
     const body = document.getElementById("body");
@@ -256,15 +255,6 @@ function load(){
         update_progress_bar();
     }
     else{
-    }
-}
-
-function play_music(){
-    if (music_player.paused){
-        music_player.play()
-    }
-    else{
-        music_player.pause()
     }
 }
 

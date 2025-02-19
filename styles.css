@@ -1,9 +1,13 @@
 * {
     font-family: monospace;
+
+}
+a{
+    text-decoration: none;
+    color: #f4f3fc;
 }
 body{
     margin: 0px;
-    width: 100vw;
     overflow-x: hidden;
     padding: 0px;
     margin: 0px;
@@ -18,12 +22,10 @@ body{
 }
 
 #header{
-    width: 100vw;
     background-color: #5e5443;
     left: 0vw;
     top: 0vh;
-    padding-bottom: 3vmin;
-    padding-top: 3vmin;
+    padding: 3vmin;
     margin: 0px;
 }
 
@@ -193,4 +195,25 @@ a{
 #popcorn-button:hover{
     transform: scale(1.1) rotate(10deg);
 }
+
+#footer{
+    background-color: #5e5443;
+    margin: 0px;
+    margin-top: 3vh;
+    
+}
+
+.footer-text{
+    color: #f4f3fc;
+    font-size: 3vmin;
+}
+
+.footer-table-cell{
+    border: none;
+    width: 33vw;
+    padding: 3vmin;
+}
+
+
+
 
