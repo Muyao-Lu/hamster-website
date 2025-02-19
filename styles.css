@@ -22,7 +22,8 @@ body{
     background-color: #5e5443;
     left: 0vw;
     top: 0vh;
-    padding: 3vmin;
+    padding-bottom: 3vmin;
+    padding-top: 3vmin;
     margin: 0px;
 }
 

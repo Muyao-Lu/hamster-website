@@ -75,7 +75,7 @@ function increase_hamster_length(){
             hamster_food_reserves += 1;
         }
         else{
-            if (Math.round(Math.random(0, 3)) == 0){
+            if (Math.round(Math.random() * 3) == 0){
                 hamster_length += 8;
                 hamster_segments += 1;
                 let body_segment = document.createElement("div");
@@ -110,14 +110,13 @@ function digest_food(){
         update_progress_bar();
     }
     else if (hamster_fullness < 5 && hamster_fullness >= 1){
-        let n = Math.round(Math.random(0, 2));
-        if (Math.round(Math.random(0, 2)) == 0){
+        if (Math.round(Math.random()) == 0){
             if (hamster_food_reserves > 0){
                 hamster_food_reserves -= 1;
             }
             
             else{
-                if (Math.round(Math.random(0, 2)) == 0){
+                if (Math.round(Math.random()) == 0){
                     try{
                     remove_body_segment(); 
                     }  
