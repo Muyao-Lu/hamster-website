@@ -11,6 +11,6 @@
 
 <h2>Content used and Attributions</h2>
 <ul>
-  <a href="https://www.youtube.com/channel/UCLNfsUeQm6zU2eBlQbEy4tw"><li>Parry Gripp</li></a>
-  <a href="https://www.freeimages.com/clipart/popcorn-5313795"><li>Popcorn Clipart</li></a>
+  <li><a href="https://www.youtube.com/channel/UCLNfsUeQm6zU2eBlQbEy4tw" target="_blank">Parry Gripp</a></li>
+  <li><a href="https://www.freeimages.com/clipart/popcorn-5313795" target="_blank">Popcorn Clipart</a></li>
 </ul>
