@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title id="title">Hamster - 10.56cm</title>
+        <link rel="stylesheet" href="../styles/styles.css">
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+    </head>
+    <body bgcolor="#c8c2a2" id="body">
+        <div id="header">
+            <div id="header-text-container">
+                <h1 id="header-text">This website is a hamster</h1>
+            </div>
+            <a href="what.html" target="_self"><button class="header-button" onclick="save_progress();">What???</button></a>
+            <button class="header-button" onclick="alert('Here is a gold star:  &#9733;');">Cool</button>
+            <button class="header-button" onclick="print_hamster()">Print your hamster</button>
+        </div>
+        <div id="instructions">
+            <ul>
+                <li>Feed the hamster for it to get longer!</li>
+                <li>Be careful - Don't let the hamster starve, or the website might just explode.</li>
+                <li>If you overfeed the hamster, the website will most definitely explode.</li>
+            </ul>
+        </div>
+        <div id="hamster">
+            <div id="hamster-stats">
+                <h2 class="hamster-stats-text" id="length">Hamster Length: 10.56cm</h2>
+                <h2 class="hamster-stats-text" id="state">Hamster Condition: Feelin' Good</h2>
+                <label for="hamster-hunger" id="progress-bar-label">Hunger</label>
+                <progress id="hunger" min="0" max="13" value="5"></progress>
+                <br>
+                <label for="food-reserves" id="progress-bar-label">Food Reserves</label>
+                <progress id="food-reserves" min="0" max="6" value="0"></progress>
+            </div>
+            <div id="hamster-container">
+                <h2 class="hamster-stats-text">The Magical Carrot which you shall feed your hamster:</h2>
+                <img id="magical-carrot" src="../images/carrot.png" draggable="true">
+                <h2 class="hamster-stats-text">Your Hamster:</h2>
+                <div id="growing-hamster">
+                    <img id="hamster-head" src="../images/hamster_head.png" draggable="false">
+                    <img id="hamster-bottom" src="../images/hamster_foot.png" draggable="false">
+                </div>
+            </div>
+            </div>
+        </div>
+        <audio loop hidden id="music">
+            <source src="../sounds/hamster_on_piano.mp3">
+        </audio>
+        <img onclick="play_music()" src="../images/popcorn.png" alt="mysterious popcorn" id="popcorn-button">
+        <script src="../scripts/scripts.js"></script>
+        <script src="../scripts/music.js"></script>
+
+        <div id="footer">
+            <table>
+                <tbody>
+                    <tr>
+                        <td style="text-align: left;" class="footer-table-cell"><p class="footer-text">Website copyright of Muyao-Lu</p></td>
+                        <td style="text-align: center;" class="footer-table-cell"><p class="footer-text" >My Github - <a href="https://github.com/Muyao-Lu">Muyao-Lu</a></p></td>
+                        <td style="text-align: right;" class="footer-table-cell"><p class="footer-text" >Free cookie: &#127850;</p></td>
+                    </tr>
+                </tbody>
+            </table>
+            
+        </div>
+    </body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Your hamster exploded!</title>
+        <link rel="stylesheet" href="../styles/news.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noticia+Text">
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+        
+    </head>
+    <body onload="generateRandom();">
+        <div id="spinner">
+            <div id="news">
+                <h1 id="news-name">The <span id="header-red">Hamster Post</span></h1>
+
+                <div id="subhead">
+                    <hr>
+                    <p id="subhead-text">We shall strike back</p>
+                    <hr>
+                </div>
+                <div id="article">
+                    <h2 id="news-head">Breaking news: Hamster Exploded after Overfeeding by Intellectually Challenged Owner</h2>
+                    <hr>
+                    <p id="news-article">On this tragic day, we are gathered to commemorate the life of <span id="name"></span>, who
+                        exploded after the owner decided to <span id="cause"></span>. Our fellow hamster accomplished many
+                        noteable acts throughout his life, including aiding in the quelling of the Third Cat Rebellion as well as playing a pivotal role in organizing the Hamlympics. Their 
+                        <span id="attribute1"></span> and their <span id="attribute2"></span> shall not be forgotten. The Hamstapo are currently
+                        investigating the cause of death, as well as bringing justice.
+                    </p>
+                    <img src="../images/hamster_head.png" id="picture" alt="A photo of the deceased hamster">
+                </div>
+                <h2 id="gameover" onclick="window.location.replace('index.html');">Game Over - Click to try again</h2>
+                
+                
+            </div>
+        </div>
+        <script>
+            let hamster_names = ["Master Jiggle the Fifth", "Lord Floofa the Chewy", "Caramel Jigglybottoms", "Jonathan McJiggle",
+                "King Retsmah, Emperor of the Turd", "Emperor Caramel of the 25th Jiggleship", "Bob",
+                "Bob's young child", "Lady Jiggla the Round", "Hamster #1",
+                "Floofa the Floff", "Hamster #36", "Fluffy Hamsterson"
+            ]
+
+            let causes = ["try making a 'Hamster Food Balloon'", "leave a full sized cake in the hamster cage", "create a new reality TV show titled 'My 800 pound Hamster's life'",
+                "'set a new world record'", "try to create a perfect sphere for 'scientific purposes'", "try to create artificial gravity",
+
+            ]
+
+            let attributes_1 = ["highly unnerving smile", "cheek pouch storage capabilities", "war cries", 
+                "backflipping abilities", "dedication to running on the wheel", "eating speeds", "ability to wink with both eyes at the same time",
+                "ability cause world ending EMP bursts with a toot", "abnormaly sized nose", "wart mildly shaped like a dinosaur on their back"
+            ]
+
+            let attributes_2 = ["contributions to the Hamstapo secret police", "record high KDR", "Hamlympic medals in the 100cm jiggle", 
+            "victory of the National Child Chowdown (the one where you eat the children)", "career in the Agency for the Creation of Edible Fecal Material"]
+            function generateRandom(){
+                document.getElementById("name").innerHTML = hamster_names[Math.round(Math.random() * hamster_names.length)]
+                document.getElementById("cause").innerHTML = causes[Math.round(Math.random() * causes.length)]
+                document.getElementById("attribute1").innerHTML = attributes_1[Math.round(Math.random() * attributes_1.length)]
+                document.getElementById("attribute2").innerHTML = attributes_2[Math.round(Math.random() * attributes_2.length)]
+            }
+        </script>
+    </body>
+</html>
