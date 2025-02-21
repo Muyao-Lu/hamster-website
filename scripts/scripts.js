@@ -14,10 +14,10 @@ const title = document.getElementById("title");
 function delete_webpage(reason){
     const body = document.getElementById("body");
     if (reason == "starved"){
-        window.location.replace("../pages/starved.html");
+        window.location.replace("./pages/starved.html");
     }
     else if (reason == "full"){
-        window.location.replace("../pages/exploded.html");
+        window.location.replace("./pages/exploded.html");
     }
     hamster_segments = 0;
     hamster_fullness = 5;
@@ -75,7 +75,7 @@ function increase_hamster_length(){
     if (hamster_fullness <= 13){
         let body_segment = document.createElement("div");
         body_segment.setAttribute("id", "hamster-body-container");
-        body_segment.innerHTML = "<img src='../images/hamster_body.png' id='hamster-body' draggable='false'>";
+        body_segment.innerHTML = "<img src='./images/hamster_body.png' id='hamster-body' draggable='false'>";
         hamster.insertBefore(body_segment, hamster_bottom);
         
         hamster_segments += 1;
@@ -93,7 +93,7 @@ function increase_hamster_length(){
                 hamster_segments += 1;
                 let body_segment = document.createElement("div");
                 body_segment.setAttribute("id", "hamster-body-container");
-                body_segment.innerHTML = "<img src='../images/hamster_body.png' id='hamster-body' draggable='false'>";
+                body_segment.innerHTML = "<img src='./images/hamster_body.png' id='hamster-body' draggable='false'>";
                 hamster.insertBefore(body_segment, hamster_bottom);
             }
         }
@@ -179,7 +179,7 @@ function dragover(initiator){
 }
 
 function print_hamster(){
-    let new_window = window.open("../pages/download.html");
+    let new_window = window.open("./pages/download.html");
     new_window.addEventListener("load", configure_new_window(new_window));
     
 }
@@ -204,14 +204,14 @@ function make_hamster(window_to_modify){
     }
     
     let new_window_growing_hamster = window_to_modify.document.getElementById("growing-hamster");
-    new_window_growing_hamster.innerHTML = '<img id="hamster-head" src="../images/hamster_head.png" draggable="false">\
-                                            <img id="hamster-bottom" src="../images/hamster_foot.png" draggable="false">';
+    new_window_growing_hamster.innerHTML = '<img id="hamster-head" src="./images/hamster_head.png" draggable="false">\
+                                            <img id="hamster-bottom" src="./images/hamster_foot.png" draggable="false">';
     
     for (let i=0; i<hamster_segments; i++){
         let body_segment = window_to_modify.document.createElement("div");
     let hamster_bottom_new = window_to_modify.document.getElementById("hamster-bottom");
     body_segment.setAttribute("id", "hamster-body-container");
-    body_segment.innerHTML = "<img src='../images/hamster_body.png' id='hamster-body'  draggable='false'>";
+    body_segment.innerHTML = "<img src='./images/hamster_body.png' id='hamster-body'  draggable='false'>";
         new_window_growing_hamster.insertBefore(body_segment, hamster_bottom_new);
     }
     hamster = window_to_modify.document.getElementById("growing-hamster");
