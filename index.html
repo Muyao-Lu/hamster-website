@@ -2,14 +2,15 @@
 <html>
     <head>
         <title id="title">Hamster - 10.56cm</title>
-        <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="./styles/styles.css">
+        <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
     </head>
     <body bgcolor="#c8c2a2" id="body">
         <div id="header">
             <div id="header-text-container">
                 <h1 id="header-text">This website is a hamster</h1>
             </div>
-            <a href="what.html" target="_self"><button class="header-button" onclick="save_progress();">What???</button></a>
+            <a href="./pages/what.html" target="_self"><button class="header-button" onclick="save_progress();">What???</button></a>
             <button class="header-button" onclick="alert('Here is a gold star:  &#9733;');">Cool</button>
             <button class="header-button" onclick="print_hamster()">Print your hamster</button>
         </div>
@@ -32,21 +33,21 @@
             </div>
             <div id="hamster-container">
                 <h2 class="hamster-stats-text">The Magical Carrot which you shall feed your hamster:</h2>
-                <img id="magical-carrot" src="carrot.png" draggable="true">
+                <img id="magical-carrot" src="./images/carrot.png" draggable="true">
                 <h2 class="hamster-stats-text">Your Hamster:</h2>
                 <div id="growing-hamster">
-                    <img id="hamster-head" src="hamster_head.png" draggable="false">
-                    <img id="hamster-bottom" src="hamster_foot.png" draggable="false">
+                    <img id="hamster-head" src="./images/hamster_head.png" draggable="false">
+                    <img id="hamster-bottom" src="./images/hamster_foot.png" draggable="false">
                 </div>
             </div>
             </div>
         </div>
         <audio loop hidden id="music">
-            <source src="hamster_on_piano.mp3">
+            <source src="./sounds/hamster_on_piano.mp3">
         </audio>
-        <img onclick="play_music()" src="popcorn.png" alt="mysterious popcorn" id="popcorn-button">
-        <script src="scripts.js"></script>
-        <script src="music.js"></script>
+        <img onclick="play_music()" src="./images/popcorn.png" alt="mysterious popcorn" id="popcorn-button">
+        <script src="./scripts/scripts.js"></script>
+        <script src="./scripts/music.js"></script>
 
         <div id="footer">
             <table>
